@@ -430,21 +430,3 @@ html.lock,html.lock body{overflow:hidden;overscroll-behavior:none;touch-action:n
 @media (max-width:900px){.brand-band>.e5,.brand-band>.e5-line{display:none}}
 @media (prefers-reduced-motion:reduce){.e5-line path,.brand-band>.e5,.e5-play,.e5-bar b{transition-duration:.01s;transition-delay:0s}}
 
-/* ===== About: two blues on a slant + logo watermark ===== */
-.about-blue{position:relative;overflow:hidden;isolation:isolate;color:#fff;border-top:0!important;background:var(--brand-deep)}
-.about-blue>.about-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
-.about-bg rect{fill:var(--brand-deep)}.about-bg polygon{fill:var(--accent)}.about-bg line{stroke:var(--seam);stroke-width:3}
-@media (max-width:900px){.about-bg line{display:none}.about-blue .body .lead{font-size:min(24px,5.4vw)}}
-.about-blue>.about-mark{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;fill:#fff;stroke:#fff;opacity:.09}
-.about-blue>.about-mark line{stroke-width:44;stroke-linecap:round}
-.about-blue .label{color:var(--seam)}
-.about-blue .sec-title,.about-blue .lead{color:#fff}
-.about-blue .body p{color:rgba(255,255,255,.8)}
-.about-blue .body .lead{color:#fff}
-.about-blue .probs-h{margin:40px 0 14px;font-weight:700;font-size:14px;letter-spacing:.12em;color:var(--seam)!important}
-.about-blue .probs{background:none;border:0;gap:14px;margin-top:0;overflow:visible}
-.about-blue .probs div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;color:#fff;font-weight:700;align-items:flex-start;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.about-blue .probs div::before{display:none}
-.about-blue .probs i{font-style:normal;font-family:var(--font-display);font-weight:800;color:var(--seam);font-size:.9em;padding-top:.1em}
-.about-blue .more-link{color:#fff}
-.about-blue .more-link i{border-color:#fff}
