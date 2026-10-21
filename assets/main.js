@@ -126,9 +126,9 @@
     var svg=band.querySelector('.e5-line'),path=svg.querySelector('path'),play=fr.querySelector('.e5-play');
     function draw(){
       if(getComputedStyle(fr).display==='none')return;
-      var b=band.getBoundingClientRect(),t=tag.getBoundingClientRect(),p=play.getBoundingClientRect();
+      var b=band.getBoundingClientRect(),t=tag.getBoundingClientRect();
       svg.setAttribute('viewBox','0 0 '+b.width+' '+b.height);
-      var x0=t.left-b.left,y0=t.bottom-b.top+12,px=p.left-b.left,py=p.top-b.top+p.height/2,xm=Math.max(t.right-b.left+40,px-200);
+      var x0=t.left-b.left,y0=t.bottom-b.top+12,cx=fr.offsetLeft+play.offsetLeft,py=fr.offsetTop-fr.offsetHeight/2+play.offsetTop,px=cx-play.offsetWidth/2,xm=Math.max(t.right-b.left+40,px-200);
       path.setAttribute('d','M'+x0+' '+y0+' H'+xm+' C '+(xm+70)+' '+y0+', '+(xm+50)+' '+py+', '+(xm+130)+' '+py+' H'+px);
       var len=path.getTotalLength();path.style.strokeDasharray=len;band.style.setProperty('--len',len);
     }
