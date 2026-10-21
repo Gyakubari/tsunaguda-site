@@ -240,13 +240,14 @@ nav a[aria-current="page"]{color:var(--accent)}
 .menu-btn span:nth-child(1){top:17px}.menu-btn span:nth-child(2){top:25px}
 header.open .menu-btn span:nth-child(1){transform:translateY(4px) rotate(45deg)}
 header.open .menu-btn span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
-#gnav{gap:24px;font-weight:500}
+#gnav{gap:clamp(16px,2.4vw,44px);font-family:var(--font-display);font-size:clamp(14px,1.35vw,17px);font-weight:400}
+#gnav .btn{font-family:var(--font-body);font-size:clamp(14px,1.3vw,17px);padding:.75em 1.4em;margin-left:clamp(0px,1vw,12px)}
 #gnav a:not(.btn){position:relative;padding:6px 0}
 #gnav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}
 #gnav a:not(.btn):hover::after,#gnav a[aria-current="page"]::after{transform:scaleX(1)}
 #gnav .btn[aria-current="page"]{color:#fff}
-@media (min-width:961px){#gnav a:not(.btn){display:inline-block}}
-@media (max-width:960px){
+@media (min-width:769px){#gnav a:not(.btn){display:inline-block}}
+@media (max-width:768px){
   .menu-btn{display:block}
   #gnav{position:fixed;inset:calc(env(safe-area-inset-top,0px) + 69px) 0 auto 0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px max(16px,env(safe-area-inset-right,0px)) 20px max(16px,env(safe-area-inset-left,0px));transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s}
   header.open #gnav{opacity:1;transform:none;visibility:visible}
