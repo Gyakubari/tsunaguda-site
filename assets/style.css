@@ -286,80 +286,13 @@ footer{border-top:1px solid var(--line)}
 .legal .body p{margin:0}
 @media (prefers-reduced-motion:reduce){.page-head .ln>span,.page-head h1,.crumb{animation:none}}
 
-/* ===== Blue creator theme ===== */
-:root,:root[data-theme="dark"],:root[data-theme="light"]{
-  --bg:#050918;--fg:#eef2ff;--muted:#8f9ac9;--line:rgba(132,155,255,.16);--panel:#0b1232;
-  --accent:#4d6dff;--accent-2:#6fd3ff;--on-accent:#ffffff;color-scheme:dark}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#050918;--fg:#eef2ff;--muted:#8f9ac9;--line:rgba(132,155,255,.16);--panel:#0b1232;--accent:#4d6dff;--on-accent:#ffffff}}
-body{background:
-  radial-gradient(1100px 640px at 88% -8%,rgba(77,109,255,.30),transparent 62%),
-  radial-gradient(900px 560px at -12% 38%,rgba(111,211,255,.10),transparent 60%),
-  radial-gradient(1000px 700px at 60% 120%,rgba(77,109,255,.18),transparent 60%),var(--bg);
-  background-attachment:fixed}
-body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(rgba(132,155,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(132,155,255,.07) 1px,transparent 1px);
-  background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 0%,#000 10%,transparent 70%)}
-::selection{background:var(--accent);color:#fff}
-header{background:rgba(5,9,24,.72)}
-.btn{background:linear-gradient(135deg,#5b7bff,#2f45f0);color:#fff;box-shadow:0 8px 28px -10px rgba(77,109,255,.9),inset 0 1px 0 rgba(255,255,255,.22)}
-.btn:hover{background:linear-gradient(135deg,#7d97ff,#4d6dff);color:#fff}
-.btn-ghost{background:rgba(255,255,255,.03);color:var(--fg);box-shadow:inset 0 0 0 1px rgba(170,185,255,.45)}
-.btn-ghost:hover{background:rgba(77,109,255,.18);color:#fff}
-.hero .display .ln>span,.page-head .display .ln>span,.cta-link span{background:linear-gradient(180deg,#ffffff 35%,#9fb3ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.page-head .display em,.cta-link em{color:var(--accent-2);-webkit-text-fill-color:var(--accent-2)}
-.hero .display .thread{background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 0 24px rgba(111,211,255,.55)}
-.label{color:#93a6ff}
-.plan,.svc li,.probs>div,.faq details{background:linear-gradient(180deg,rgba(77,109,255,.07),rgba(77,109,255,.015))}
-.plan{border-color:var(--line)}
-.plan.pick{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 20px 60px -30px rgba(77,109,255,.8)}
-.thumb{box-shadow:inset 0 0 0 1px var(--line)}
-.t1{background:linear-gradient(135deg,#0d1844,#2c43d8)}
-.t2{background:radial-gradient(circle at 80% 20%,rgba(111,211,255,.45),transparent 55%),linear-gradient(160deg,#0a1236,#13207a)}
-.t3{background:radial-gradient(circle at 30% 30%,#3d5cff,#0a1236 65%)}
-.t4{background:linear-gradient(200deg,#1b2b8f,#070c26 70%),#0b1232}
-.thumb .play{background:rgba(255,255,255,.92)}.thumb .play::before{border-left-color:#1c2fb8}
-.thumb .tname{color:#fff}
-.work:hover .thumb{box-shadow:inset 0 0 0 1px var(--accent),0 18px 50px -24px rgba(77,109,255,.9)}
-.thumb{transition:box-shadow .3s}
-.cta-band{background:radial-gradient(800px 400px at 80% 50%,rgba(77,109,255,.22),transparent 70%)}
-.cta-link i{border-color:rgba(170,185,255,.5)}
-footer{background:rgba(3,6,18,.6)}
-input,select,textarea{background:rgba(11,18,50,.8)}
-.mk-a{fill:#ffffff}.mk-l{stroke:#ffffff}.mk-b{fill:var(--accent)}.mk-p{fill:#ffffff}
-.intro{background:radial-gradient(900px 600px at 50% 45%,#2238d8,#060b2a 70%);color:#fff}
-.intro .im-line{stroke:#fff}.intro .im-a{fill:#9fb3ff}.intro .im-b{fill:#fff}.intro .im-p{fill:#2238d8}
-.intro-sub{color:#9fb3ff}
-
-/* ===== Page transition ===== */
-.pt{position:fixed;inset:0;z-index:100;pointer-events:none;display:flex;visibility:hidden}
-html.pt-out .pt,html.pt-in .pt{visibility:visible}
-html.pt-out .pt{pointer-events:auto}
-.pt i{flex:1;margin-right:-1px;background:linear-gradient(180deg,#2f48f5,#0a1458 62%,#050918);transform:translateY(101%)}
-.pt i:nth-child(even){background:linear-gradient(0deg,#3a55ff,#0c1866 62%,#050918);transform:translateY(-101%)}
-html.pt-out .pt i{animation:ptIn .55s cubic-bezier(.76,0,.24,1) forwards;animation-delay:calc(var(--d)*55ms)}
-html.pt-in .pt i{transform:none;animation:ptOutUp .6s cubic-bezier(.76,0,.24,1) forwards;animation-delay:calc(.28s + var(--d)*55ms)}
-html.pt-in .pt i:nth-child(even){animation-name:ptOutDown}
-@keyframes ptIn{to{transform:none}}
-@keyframes ptOutUp{from{transform:none}to{transform:translateY(-101%)}}
-@keyframes ptOutDown{from{transform:none}to{transform:translateY(101%)}}
-.pt-label{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;color:#fff;text-align:center;padding-inline:16px}
-.pt-en{font-family:var(--font-display);font-weight:800;font-size:clamp(56px,11vw,150px);letter-spacing:-.045em;line-height:.95;overflow:hidden}
-.pt-en span{display:inline-block}
-.pt-jp{font-family:var(--font-mono);font-size:12px;letter-spacing:.3em;color:#a9b9ff}
-.pt-bar{width:min(320px,60vw);height:2px;background:rgba(255,255,255,.15);overflow:hidden}
-.pt-bar::after{content:"";display:block;height:100%;background:linear-gradient(90deg,var(--accent-2),#fff);transform:scaleX(0);transform-origin:left}
-.pt-label>*{opacity:0}
-html.pt-out .pt-label>*{animation:ptFade .35s ease-out .32s forwards}
-html.pt-out .pt-en span{animation:ptRise .5s cubic-bezier(.2,.8,.2,1) .3s backwards}
-html.pt-out .pt-bar::after{animation:ptBar .45s cubic-bezier(.6,0,.2,1) .4s forwards}
-html.pt-in .pt-label>*{opacity:1;animation:ptFadeOut .25s ease-in .12s forwards}
-html.pt-in .pt-bar::after{transform:none}
-@keyframes ptFade{to{opacity:1}}
-@keyframes ptFadeOut{to{opacity:0;transform:translateY(-12px)}}
-@keyframes ptRise{from{transform:translateY(105%)}}
-@keyframes ptBar{to{transform:none}}
-@media (prefers-reduced-motion:reduce){.pt{display:none}}
-
+/* ===== fixes ===== */
 .crumb a{display:inline!important}
 .hero .display .ln>span,.page-head .display .ln>span{padding-bottom:.1em;margin-bottom:-.1em}
+
+/* ===== Page transition (interim: quiet fade) ===== */
+.pt{display:none}
+html.pt-out body{opacity:0;transition:opacity .35s ease}
+html.pt-in body{animation:ptBodyIn .5s ease both}
+@keyframes ptBodyIn{from{opacity:0}}
+@media (prefers-reduced-motion:reduce){html.pt-out body,html.pt-in body{transition:none;animation:none}}

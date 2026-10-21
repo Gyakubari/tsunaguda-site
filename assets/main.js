@@ -18,7 +18,7 @@
     var lb=PTL[seg]||PTL.home;setPT(lb);
     try{sessionStorage.setItem('pt',seg);}catch(x){}
     root.classList.remove('pt-in');root.classList.add('pt-out');
-    setTimeout(function(){location.href=a.href;},820);
+    setTimeout(function(){location.href=a.href;},360);
   });
   window.addEventListener('pageshow',function(e){if(e.persisted)root.classList.remove('pt-out');});
   var btn=document.getElementById('menu-btn'),hd=document.querySelector('header');
