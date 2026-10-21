@@ -290,9 +290,20 @@ footer{border-top:1px solid var(--line)}
 .crumb a{display:inline!important}
 .hero .display .ln>span,.page-head .display .ln>span{padding-bottom:.1em;margin-bottom:-.1em}
 
-/* ===== Page transition (interim: quiet fade) ===== */
-.pt{display:none}
-html.pt-out body{opacity:0;transition:opacity .35s ease}
-html.pt-in body{animation:ptBodyIn .5s ease both}
-@keyframes ptBodyIn{from{opacity:0}}
-@media (prefers-reduced-motion:reduce){html.pt-out body,html.pt-in body{transition:none;animation:none}}
+/* ===== Page transition: two panels rise flat, leave upward with a slanted edge ===== */
+:root{--pt1:#2f4bff;--pt2:#0d1433}
+.pt{position:fixed;inset:0;z-index:100;pointer-events:none;overflow:hidden;visibility:hidden}
+html.pt-out .pt,html.pt-in .pt{visibility:visible}
+html.pt-out .pt{pointer-events:auto}
+.pt i{position:absolute;left:0;right:0;top:0;height:calc(100% + 14vw);transform:translateY(100%);
+  clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 14vw))}
+.pt-a{background:var(--pt1)}
+.pt-b{background:var(--pt2)}
+html.pt-out .pt-a{animation:ptUp .55s cubic-bezier(.76,0,.24,1) forwards}
+html.pt-out .pt-b{animation:ptUp .55s cubic-bezier(.76,0,.24,1) .09s forwards}
+html.pt-in .pt i{transform:none}
+html.pt-in .pt-b{animation:ptAway .8s cubic-bezier(.76,0,.24,1) .12s both}
+html.pt-in .pt-a{animation:ptAway .8s cubic-bezier(.76,0,.24,1) .22s both}
+@keyframes ptUp{from{transform:translateY(100%)}to{transform:none}}
+@keyframes ptAway{from{transform:none}to{transform:translateY(-100%)}}
+@media (prefers-reduced-motion:reduce){.pt{display:none}}
