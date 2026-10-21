@@ -307,3 +307,25 @@ html.pt-in .pt-a{animation:ptAway .8s cubic-bezier(.76,0,.24,1) .22s both}
 @keyframes ptUp{from{transform:translateY(100%)}to{transform:none}}
 @keyframes ptAway{from{transform:none}to{transform:translateY(-100%)}}
 @media (prefers-reduced-motion:reduce){.pt{display:none}}
+
+/* ===== Brand blue (from reference: royal blue -> steel blue gradient with grain) ===== */
+:root{--accent:#3352ab;--brand-deep:#24389d;--brand-mid:#4a73b8;--brand-light:#6a97bb;--brand-ink:#141821;
+  --grad:linear-gradient(112deg,#24389d 0%,#3150ad 34%,#4a73b8 62%,#6a97bb 86%,#8a86a8 100%)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--accent:#8ea8e6}}
+:root[data-theme="dark"]{--accent:#8ea8e6}
+.grain{isolation:isolate}
+.brand-band{position:relative}
+.grain::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.brand-band{color:#fff;background:var(--grad);clip-path:polygon(0 clamp(24px,4vw,64px),100% 0,100% calc(100% - clamp(24px,4vw,64px)),0 100%);padding-block:clamp(110px,13vw,190px)}
+.brand-band>*{position:relative;z-index:0}
+.brand-band .kicker{font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3.6vw,50px);letter-spacing:-.03em;line-height:1}
+.brand-band h2{font-family:var(--font-display);font-weight:800;font-size:clamp(46px,8vw,118px);letter-spacing:-.05em;line-height:.98;margin-top:clamp(18px,2.4vw,32px)}
+.brand-band .lines{display:grid;gap:12px;justify-items:start;margin:clamp(36px,5vw,64px) 0 0 clamp(0px,11vw,170px)}
+.brand-band .lines span{background:var(--brand-ink);color:#fff;padding:.55em 1em;font-weight:700;letter-spacing:.14em;font-size:clamp(14px,1.5vw,19px);line-height:1.5}
+.brand-band .more-link{color:#fff;margin-top:clamp(32px,4vw,48px);display:inline-flex}
+.brand-band .more-link i{border-color:#fff}
+.intro{background:var(--grad)}
+.intro .im-b{fill:#fff}.intro .im-p{fill:var(--brand-deep)}.intro .im-a{fill:#fff}.intro .im-line{stroke:#fff}
+.intro .intro-word{color:#fff}.intro .intro-sub{color:rgba(255,255,255,.75)}
+@media (max-width:520px){.brand-band .lines span{letter-spacing:.06em}.brand-band .lines{margin-left:0}}
