@@ -403,3 +403,6 @@ html.js .cta-band.r-panel .label,html.js .cta-band.r-panel p{transition-delay:.5
 html.js .cta-band.r-panel .cta-link .rl>span{transition-delay:calc(.45s + var(--l,0)*90ms)}
 @media (prefers-reduced-motion:reduce){html.js .cta-band::before,html.js .cta-band::after{clip-path:polygon(0 clamp(40px,7vw,110px),100% 0,100% 100%,0 100%)!important;transition:none!important}}
 
+
+/* lock scrolling during the intro */
+html.lock,html.lock body{overflow:hidden;overscroll-behavior:none;touch-action:none}
