@@ -430,3 +430,7 @@ html.lock,html.lock body{overflow:hidden;overscroll-behavior:none;touch-action:n
 @media (max-width:900px){.brand-band>.e5,.brand-band>.e5-line{display:none}}
 @media (prefers-reduced-motion:reduce){.e5-line path,.brand-band>.e5,.e5-play,.e5-bar b{transition-duration:.01s;transition-delay:0s}}
 
+
+/* intro keeps its original gradient + grain */
+.intro{background:linear-gradient(112deg,#24389d 0%,#3150ad 34%,#4a73b8 62%,#6a97bb 86%,#8a86a8 100%)}
+.intro.grain::after{display:block}

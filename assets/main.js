@@ -56,9 +56,9 @@
   // hero shapes: brand motifs burst from the center, then float and follow the pointer
   (function(){
     var hero=document.querySelector('.hero');if(!hero)return;
-    var G='<defs><linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24389d"/><stop offset=".5" stop-color="#24389d"/><stop offset=".5" stop-color="#3352ab"/><stop offset="1" stop-color="#3352ab"/></linearGradient>'+
-      '<linearGradient id="hg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3352ab"/><stop offset="1" stop-color="#3352ab"/></linearGradient>'+
-      '<linearGradient id="hg3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3352ab"/><stop offset="1" stop-color="#7fd0f5"/></linearGradient></defs>';
+    var G='<defs><linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24389d"/><stop offset=".55" stop-color="#3352ab"/><stop offset="1" stop-color="#6a97bb"/></linearGradient>'+
+      '<linearGradient id="hg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3150ad"/><stop offset="1" stop-color="#8fb3d6"/></linearGradient>'+
+      '<linearGradient id="hg3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4a73b8"/><stop offset="1" stop-color="#a08fb8"/></linearGradient></defs>';
     var T={
       ring:function(g){return '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="url(#'+g+')" stroke-width="22"/></svg>';},
       thin:function(g){return '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="url(#'+g+')" stroke-width="10"/></svg>';},
