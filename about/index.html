@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/style.css">
+<script>try{if(sessionStorage.getItem('pt')){sessionStorage.removeItem('pt');document.documentElement.classList.add('seen','pt-in');}}catch(e){}</script>
 </head>
 <body class="sub">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -31,6 +32,7 @@
   </symbol>
 </svg>
 
+<div class="pt" aria-hidden="true"></div>
 <header>
   <div class="wrap">
     <a class="logo" href="../" aria-label="株式会社つなぐだ ホームへ">
@@ -40,9 +42,9 @@
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span></span><span></span><span class="sr">メニュー</span></button>
     <nav aria-label="メインメニュー" id="gnav">
       <a href="../about/" aria-current="page">About</a>
-      <a href="../about/#philosophy">Philosophy</a>
+      <a href="../philosophy/">Philosophy</a>
       <a href="../service/">Service</a>
-      <a href="../service/#plan">Plan</a>
+      <a href="../plan/">Plan</a>
       <a href="../works/">Works</a>
       <a href="../company/">Company</a>
       <a class="btn" href="../contact/">無料で相談する →</a>
@@ -77,28 +79,6 @@
     </div>
   </section>
 
-  <section class="block philo" id="philosophy">
-    <div class="wrap grid2">
-      <div class="sec-head"><div class="label">Philosophy</div><h2 class="sec-title">Our<br>belief</h2></div>
-      <div class="body">
-        <div class="label" style="margin-bottom:10px">Mission ／ 理念</div>
-        <p class="mission">動画を通して、<br>人と人がつながる世界の実現。</p>
-        <p>動画には、画面越しでも人と人をつなぐ力があります。会社と、まだ出会っていない未来の仲間も同じです。私たちは動画で、その最初の出会いをつくります。</p>
-        <div class="value">
-          <div class="label">Value ／ 行動指針</div>
-          <h3>ニュートラルな逆張り</h3>
-          <p>常識は、環境によって変わります。周りに合わせる「順張り」と、あえて逆の視点を持つ「逆張り」。どちらが正しいかは、その場所によって決まります。私たちは両方を使い分けるバランス感覚を大切にし、業界の当たり前を疑いながら、その会社にしかない伝え方を探します。</p>
-        </div>
-        <div class="message">
-          <div class="label">Message ／ 代表メッセージ</div>
-          <p>私は、YouTubeに2度救われました。1度目は、転校先になじめなかったとき。画面越しに新しい人とつながり、自分の居場所が広がっていく感覚に支えられました。2度目は、模試の判定が上がらず苦しかった受験期。少し先を歩く大学生の動画が、もう一度頑張る力をくれました。</p>
-          <p>動画は、人と人をつなぎ、誰かの背中を押すことができる。この実感から、株式会社つなぐだを設立しました。次は私たちが、動画で会社と人をつなぐ側に回ります。</p>
-          <p class="sign">代表取締役　水谷 柾一朗</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="cta-band">
     <div class="wrap">
       <div class="label">Contact</div>
@@ -115,8 +95,8 @@
       <p>採用支援のYouTube運用代行<br>〒210-0007 神奈川県川崎市川崎区駅前本町11番地2 川崎フロンティアビル4階</p>
     </div>
     <nav class="foot-nav" aria-label="フッターメニュー">
-      <div><span class="label">Company</span><a href="../about/">私たちについて</a><a href="../about/#philosophy">理念・代表メッセージ</a><a href="../company/">会社概要</a></div>
-      <div><span class="label">Service</span><a href="../service/">サービス</a><a href="../service/#plan">料金プラン</a><a href="../works/">実績・事例紹介</a></div>
+      <div><span class="label">Company</span><a href="../about/">私たちについて</a><a href="../philosophy/">理念・代表メッセージ</a><a href="../company/">会社概要</a></div>
+      <div><span class="label">Service</span><a href="../service/">サービス</a><a href="../plan/">料金プラン</a><a href="../works/">実績・事例紹介</a></div>
       <div><span class="label">Contact</span><a href="../contact/">お問い合わせ</a><a href="../service/#faq">よくあるご質問</a><a href="../privacy/">プライバシーポリシー</a></div>
     </nav>
   </div>

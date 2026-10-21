@@ -235,6 +235,15 @@ header{animation-delay:calc(var(--intro) + .2s)}
 /* ===== multi-page ===== */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 nav a[aria-current="page"]{color:var(--accent)}
+.pt{position:fixed;inset:0;z-index:100;pointer-events:none;background:var(--accent);transform:translateY(100%)}
+.pt::before{content:"";position:absolute;inset:0;background:#1c2fb8;transform:translateY(100%)}
+html.pt-out .pt{pointer-events:auto;animation:ptCover .5s cubic-bezier(.7,0,.25,1) forwards}
+html.pt-out .pt::before{animation:ptCover .45s .12s cubic-bezier(.7,0,.25,1) forwards}
+html.pt-in .pt{animation:ptLeave .65s .05s cubic-bezier(.7,0,.25,1) both}
+html.pt-in .pt::before{transform:none;animation:ptLeave .55s cubic-bezier(.7,0,.25,1) both}
+@keyframes ptCover{from{transform:translateY(100%)}to{transform:none}}
+@keyframes ptLeave{from{transform:none}to{transform:translateY(-100%)}}
+@media (prefers-reduced-motion:reduce){.pt{display:none}}
 .menu-btn{display:none;width:44px;height:44px;border:0;background:transparent;cursor:pointer;position:relative;color:var(--fg)}
 .menu-btn span:not(.sr){position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s}
 .menu-btn span:nth-child(1){top:17px}.menu-btn span:nth-child(2){top:25px}

@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/style.css">
+<script>try{if(sessionStorage.getItem('pt')){sessionStorage.removeItem('pt');document.documentElement.classList.add('seen','pt-in');}}catch(e){}</script>
 </head>
 <body class="sub">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -31,6 +32,7 @@
   </symbol>
 </svg>
 
+<div class="pt" aria-hidden="true"></div>
 <header>
   <div class="wrap">
     <a class="logo" href="../" aria-label="株式会社つなぐだ ホームへ">
@@ -40,9 +42,9 @@
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span></span><span></span><span class="sr">メニュー</span></button>
     <nav aria-label="メインメニュー" id="gnav">
       <a href="../about/">About</a>
-      <a href="../about/#philosophy">Philosophy</a>
+      <a href="../philosophy/">Philosophy</a>
       <a href="../service/">Service</a>
-      <a href="../service/#plan">Plan</a>
+      <a href="../plan/">Plan</a>
       <a href="../works/" aria-current="page">Works</a>
       <a href="../company/">Company</a>
       <a class="btn" href="../contact/">無料で相談する →</a>
@@ -95,8 +97,8 @@
       <p>採用支援のYouTube運用代行<br>〒210-0007 神奈川県川崎市川崎区駅前本町11番地2 川崎フロンティアビル4階</p>
     </div>
     <nav class="foot-nav" aria-label="フッターメニュー">
-      <div><span class="label">Company</span><a href="../about/">私たちについて</a><a href="../about/#philosophy">理念・代表メッセージ</a><a href="../company/">会社概要</a></div>
-      <div><span class="label">Service</span><a href="../service/">サービス</a><a href="../service/#plan">料金プラン</a><a href="../works/">実績・事例紹介</a></div>
+      <div><span class="label">Company</span><a href="../about/">私たちについて</a><a href="../philosophy/">理念・代表メッセージ</a><a href="../company/">会社概要</a></div>
+      <div><span class="label">Service</span><a href="../service/">サービス</a><a href="../plan/">料金プラン</a><a href="../works/">実績・事例紹介</a></div>
       <div><span class="label">Contact</span><a href="../contact/">お問い合わせ</a><a href="../service/#faq">よくあるご質問</a><a href="../privacy/">プライバシーポリシー</a></div>
     </nav>
   </div>
