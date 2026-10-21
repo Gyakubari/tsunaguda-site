@@ -68,7 +68,7 @@
       var body={'会社名':d.company,'お名前':d.name,'メールアドレス':d.email,'ご相談内容':d.topic,'詳しい内容':d.message||'（記入なし）',
         _subject:'【HP問い合わせ】'+d.company+' '+d.name+'様',_replyto:d.email,_template:'table',_honey:''};
       btn.disabled=true;var label=btn.textContent;btn.textContent='送信中…';
-      fetch('https://formsubmit.co/ajax/m.mizutani@tsunaguda.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)})
+      fetch('https://formsubmit.co/ajax/0ed5f1fb5bcba320dc17bf002947b6bc',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)})
         .then(function(r){return r.json();})
         .then(function(j){
           if(j&&(j.success===true||j.success==='true')){form.reset();say('送信しました。お問い合わせありがとうございます。内容を確認のうえ、ご入力いただいたメールアドレスにご連絡します。',true);}
