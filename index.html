@@ -1,6 +1,20 @@
-<title>株式会社つなぐだ</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="株式会社つなぐだは、法人向けのYouTube運用代行会社です。チャンネル設計から企画、撮影・編集、投稿、分析改善までまとめてお任せいただけます。">
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>株式会社つなぐだ｜法人向けYouTube運用代行・チャンネル運用</title>
+<meta name="description" content="株式会社つなぐだ（tsunaguda）は、法人向けのYouTube運用代行会社です。チャンネル設計、企画・台本、撮影・編集、投稿、分析・改善までまとめてお任せいただけます。">
+<link rel="canonical" href="https://tsunaguda.com/">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社つなぐだ">
+<meta property="og:title" content="株式会社つなぐだ｜法人向けYouTube運用代行・チャンネル運用">
+<meta property="og:description" content="株式会社つなぐだ（tsunaguda）は、法人向けのYouTube運用代行会社です。チャンネル設計、企画・台本、撮影・編集、投稿、分析・改善までまとめてお任せいただけます。">
+<meta property="og:url" content="https://tsunaguda.com/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"株式会社つなぐだ","alternateName":["つなぐだ","tsunaguda","Tsunaguda Inc."],"url":"https://tsunaguda.com/","logo":"https://tsunaguda.com/logo.svg","description":"法人向けYouTubeチャンネル運用代行／動画の企画・制作"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -58,8 +72,8 @@ nav a:not(.btn):hover{color:var(--accent)}
 .hero-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-bottom:clamp(28px,5vw,56px)}
 .clock{font-variant-numeric:tabular-nums}
 .clock b{color:var(--fg);font-weight:500}
-.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(54px,12.5vw,172px);line-height:.9;letter-spacing:-.045em}
-.hero h1 .thread{display:inline-block;width:.9em;height:.12em;background:var(--accent);border-radius:99px;vertical-align:.22em;margin-inline:.08em}
+.hero .display{margin:0;font-family:var(--font-display);font-weight:800;font-size:clamp(54px,12.5vw,172px);line-height:.9;letter-spacing:-.045em}
+.hero .display .thread{display:inline-block;width:.9em;height:.12em;background:var(--accent);border-radius:99px;vertical-align:.22em;margin-inline:.08em}
 .hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-top:clamp(32px,5vw,56px)}
 .hero-copy{display:grid;gap:14px;max-width:36em}
 .hero-copy strong{font-size:clamp(20px,2.4vw,28px);font-weight:900;line-height:1.5}
@@ -178,7 +192,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 footer nav{gap:20px;font-size:13px}
 footer nav a{display:inline!important}
 </style>
-
+</head>
+<body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="mark" viewBox="0 0 32 32">
     <!-- 2つの点を線でつなぎ、右の点を再生ボタンにした「つなぐ」マーク -->
@@ -210,10 +225,10 @@ footer nav a{display:inline!important}
   <section class="hero">
     <div class="wrap">
       <div class="hero-meta">
-        <span class="label">YouTube Channel Operation for Business</span>
+        <h1 class="label" style="font-size:12px;font-weight:400">株式会社つなぐだ ／ 法人向けYouTube運用代行</h1>
         <span class="label clock">Tokyo <b id="clock">--:--</b></span>
       </div>
-      <h1>Brand<span class="thread" aria-hidden="true"></span>to<br>people.</h1>
+      <p class="display" aria-hidden="true">Brand<span class="thread"></span>to<br>people.</p>
       <div class="hero-foot">
         <div class="hero-copy">
           <strong>企業と、まだ出会っていないお客さまを<br>YouTubeでつなぐ。</strong>
@@ -387,3 +402,5 @@ footer nav a{display:inline!important}
   form.addEventListener('submit',function(e){e.preventDefault();document.getElementById('sent').hidden=false;});
 })();
 </script>
+</body>
+</html>
