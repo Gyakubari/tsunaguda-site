@@ -353,3 +353,9 @@ html.js .r-line.in{transform:none}
   html.js .r-up.in,html.js .r-chars.in .rc,html.js .r-lines.in .rl>span,html.js .r-box.in,html.js .r-mask.in{opacity:1}
 }
 .sent.err{box-shadow:inset 3px 0 0 #c2410c}
+.thumb.has-img{background:#0e1016}
+.thumb.has-img img{position:absolute;inset:0;width:100%;height:100%;max-width:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.work:hover .thumb.has-img img{transform:scale(1.04)}
+.thumb.has-img .play{position:relative;z-index:1;opacity:0;transition:opacity .3s,transform .35s}
+.work:hover .thumb.has-img .play{opacity:1}
+.work-meta b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
