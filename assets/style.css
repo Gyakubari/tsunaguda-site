@@ -352,3 +352,4 @@ html.js .r-line.in{transform:none}
   html.js .r-mask>*{transform:none!important;transition:none!important}
   html.js .r-up.in,html.js .r-chars.in .rc,html.js .r-lines.in .rl>span,html.js .r-box.in,html.js .r-mask.in{opacity:1}
 }
+.sent.err{box-shadow:inset 3px 0 0 #c2410c}
