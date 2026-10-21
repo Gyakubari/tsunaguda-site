@@ -406,3 +406,26 @@ html.js .cta-band.r-panel .cta-link .rl>span{transition-delay:calc(.45s + var(--
 
 /* lock scrolling during the intro */
 html.lock,html.lock body{overflow:hidden;overscroll-behavior:none;touch-action:none}
+
+/* ===== Brand surface v2 (E5): two blues split on a slant, joined by a light seam ===== */
+:root{--seam:#7fd0f5;
+  --grad:linear-gradient(118deg,transparent calc(58% - 1.5px),var(--seam) calc(58% - 1.5px) calc(58% + 1.5px),transparent calc(58% + 1.5px)),
+         linear-gradient(118deg,var(--brand-deep) 0 58%,var(--accent) 58% 100%)}
+.grain::after{display:none}
+.brand-band{background:linear-gradient(112deg,var(--brand-deep) 0 60%,var(--accent) 60% 100%)}
+.brand-band .tagline{margin-top:clamp(22px,2.8vw,36px)}
+.brand-band .tagline span{display:inline-block;background:var(--brand-ink);color:#fff;padding:.5em .9em;font-weight:800;letter-spacing:.1em;font-size:clamp(17px,2.1vw,28px);line-height:1.5}
+.brand-band>.e5-line{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+.e5-line path{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-dashoffset:var(--len,2000);transition:stroke-dashoffset 1.5s cubic-bezier(.65,0,.35,1) .35s}
+.brand-band.e5-on .e5-line path{stroke-dashoffset:0}
+.brand-band>.e5{position:absolute;right:max(16px,5vw);top:58%;width:min(28vw,420px);aspect-ratio:16/9;transform:translateY(-50%);border-radius:18px;background:rgba(20,24,33,.55);z-index:0;
+  opacity:0;translate:40px 0;transition:opacity .7s ease-out,translate .9s cubic-bezier(.2,.8,.2,1)}
+.brand-band.e5-on>.e5{opacity:1;translate:0 0}
+.e5-play{position:absolute;left:50%;top:44%;width:22%;aspect-ratio:1;border-radius:50%;background:#fff;transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1) 1.75s}
+.e5-play::after{content:"";position:absolute;left:38%;top:28%;border-style:solid;border-width:0 0 0 0;width:0;height:0;border-top:calc(.22*min(28vw,420px)*.22) solid transparent;border-bottom:calc(.22*min(28vw,420px)*.22) solid transparent;border-left:calc(.22*min(28vw,420px)*.36) solid var(--accent)}
+.brand-band.e5-on .e5-play{transform:translate(-50%,-50%) scale(1)}
+.e5-bar{position:absolute;left:6%;right:6%;bottom:9%;height:5px;border-radius:3px;background:rgba(255,255,255,.28);overflow:hidden}
+.e5-bar b{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0);transition:transform 3s linear 2.2s}
+.brand-band.e5-on .e5-bar b{transform:scaleX(.34)}
+@media (max-width:900px){.brand-band>.e5,.brand-band>.e5-line{display:none}}
+@media (prefers-reduced-motion:reduce){.e5-line path,.brand-band>.e5,.e5-play,.e5-bar b{transition-duration:.01s;transition-delay:0s}}

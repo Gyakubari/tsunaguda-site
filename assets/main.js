@@ -56,9 +56,9 @@
   // hero shapes: brand motifs burst from the center, then float and follow the pointer
   (function(){
     var hero=document.querySelector('.hero');if(!hero)return;
-    var G='<defs><linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24389d"/><stop offset=".55" stop-color="#3352ab"/><stop offset="1" stop-color="#6a97bb"/></linearGradient>'+
-      '<linearGradient id="hg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3150ad"/><stop offset="1" stop-color="#8fb3d6"/></linearGradient>'+
-      '<linearGradient id="hg3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4a73b8"/><stop offset="1" stop-color="#a08fb8"/></linearGradient></defs>';
+    var G='<defs><linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24389d"/><stop offset=".5" stop-color="#24389d"/><stop offset=".5" stop-color="#3352ab"/><stop offset="1" stop-color="#3352ab"/></linearGradient>'+
+      '<linearGradient id="hg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3352ab"/><stop offset="1" stop-color="#3352ab"/></linearGradient>'+
+      '<linearGradient id="hg3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3352ab"/><stop offset="1" stop-color="#7fd0f5"/></linearGradient></defs>';
     var T={
       ring:function(g){return '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="url(#'+g+')" stroke-width="22"/></svg>';},
       thin:function(g){return '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="url(#'+g+')" stroke-width="10"/></svg>';},
@@ -119,6 +119,22 @@
       ['wheel','touchmove','keydown'].forEach(function(t){window.removeEventListener(t,stop,o);});
       window.removeEventListener('scroll',onScroll);de.classList.remove('lock');window.scrollTo(0,0);
     },2350);
+  })();
+  (function(){
+    var band=document.querySelector('.brand-band'),tag=band&&band.querySelector('.tagline span'),fr=band&&band.querySelector('.e5');
+    if(!band||!tag||!fr)return;
+    var svg=band.querySelector('.e5-line'),path=svg.querySelector('path'),play=fr.querySelector('.e5-play');
+    function draw(){
+      if(getComputedStyle(fr).display==='none')return;
+      var b=band.getBoundingClientRect(),t=tag.getBoundingClientRect(),p=play.getBoundingClientRect();
+      svg.setAttribute('viewBox','0 0 '+b.width+' '+b.height);
+      var x0=t.left-b.left,y0=t.bottom-b.top+12,px=p.left-b.left,py=p.top-b.top+p.height/2,xm=Math.max(t.right-b.left+40,px-200);
+      path.setAttribute('d','M'+x0+' '+y0+' H'+xm+' C '+(xm+70)+' '+y0+', '+(xm+50)+' '+py+', '+(xm+130)+' '+py+' H'+px);
+      var len=path.getTotalLength();path.style.strokeDasharray=len;band.style.setProperty('--len',len);
+    }
+    draw();window.addEventListener('resize',draw);if(document.fonts)document.fonts.ready.then(draw);
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){draw();band.classList.add('e5-on');io.disconnect();}});},{threshold:.35});
+    io.observe(band);
   })();
   var btn=document.getElementById('menu-btn'),hd=document.querySelector('header');
   if(btn){btn.addEventListener('click',function(){var o=hd.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
