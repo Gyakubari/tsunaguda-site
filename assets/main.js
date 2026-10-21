@@ -22,7 +22,7 @@
   });
   window.addEventListener('pageshow',function(e){if(e.persisted)root.classList.remove('pt-out');});
   (function(){
-    if(!('IntersectionObserver' in window)||rm){root.classList.remove('js');return;}
+    if(!('IntersectionObserver' in window)){root.classList.remove('js');return;}
     function skip(el){return el.closest('.hero,.page-head,header,footer,.intro,.pt');}
     function all(sel){return Array.prototype.filter.call(document.querySelectorAll(sel),function(el){return !skip(el);});}
     var targets=[];
