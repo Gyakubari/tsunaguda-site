@@ -476,3 +476,39 @@ html.js .divider.in .d-gh{opacity:1}
 @keyframes hair{0%{left:-10%;opacity:1}100%{left:110%;opacity:1}}
 @keyframes redraw{0%{transform:scaleX(1);transform-origin:right}45%{transform:scaleX(0);transform-origin:right}46%{transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
 @media (prefers-reduced-motion:reduce){.fx b:nth-child(-n+3){display:none}.fx b:nth-child(4){transition-duration:.01s;transition-delay:0s}}
+
+/* ===== Footer: two blues + seam, stepped edge, outline wordmark ===== */
+footer.ft{border-top:0;position:relative;margin-top:clamp(40px,6vw,90px);--fb:var(--brand-deep);--fa:var(--accent);--ff:#fff;--fm:rgba(255,255,255,.66);--fl:rgba(255,255,255,.2)}
+.ft-edge{display:block;width:100%;height:clamp(56px,10vw,160px)}
+.ft-edge polygon{fill:var(--fa)}
+.ft-body{position:relative;overflow:hidden;margin-top:-1px;color:var(--ff);isolation:isolate}
+.ft-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.ft-bg rect{fill:var(--fb)}.ft-bg polygon{fill:var(--fa)}.ft-bg line{stroke:var(--seam);stroke-width:3}
+.ft-in{max-width:1200px;margin:0 auto;padding:clamp(28px,4vw,56px) max(20px,4vw) clamp(150px,17vw,250px);display:grid;grid-template-columns:1.1fr 1.6fr;gap:clamp(36px,5vw,80px);position:relative;z-index:1}
+.ft-logo{display:inline-flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3vw,40px);letter-spacing:-.04em}
+.ft-logo svg{width:clamp(48px,4.4vw,64px);height:auto}
+.ft-copy{margin:22px 0 0;font-weight:700;font-size:clamp(15px,1.3vw,18px);letter-spacing:.08em;color:#fff}
+.ft-addr{margin:14px 0 0;font-size:13px;line-height:1.9;color:var(--fm)}
+.ft-cols{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);align-items:start}
+.ft-h{margin:0 0 16px;font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;color:var(--fm);padding-bottom:12px;position:relative;border-bottom:1px solid var(--fl)}
+.ft-h::after{content:"";position:absolute;left:0;bottom:-1px;width:34px;height:2px;background:var(--seam)}
+footer.ft .ft-cols a{display:block!important;color:#fff;font-weight:700;font-size:15px;padding:7px 0;text-decoration:none;width:max-content;position:relative}
+footer.ft .ft-cols a::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+@media (hover:hover){footer.ft .ft-cols a:hover::after{transform:scaleX(1);transform-origin:left}}
+.ft-mark{position:absolute;left:50%;bottom:clamp(40px,5vw,64px);transform:translateX(-50%);font-family:var(--font-display);font-weight:800;font-size:clamp(90px,21vw,330px);letter-spacing:-.05em;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.2);white-space:nowrap;pointer-events:none;z-index:0}
+.ft-bot{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:22px max(20px,4vw) calc(26px + env(safe-area-inset-bottom,0px));display:flex;gap:28px;align-items:center;font-size:13px;color:var(--fm);border-top:1px solid var(--fl)}
+.ft-bot a{color:#fff;text-decoration:none;font-weight:500}
+.ft-bot span{margin-right:auto}
+.ft-top{font-family:var(--font-mono);letter-spacing:.2em;display:inline-flex;gap:10px;align-items:center}
+.ft-top i{font-style:normal;display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.4);border-radius:50%;transition:transform .35s,background .3s,color .3s}
+@media (hover:hover){.ft-top:hover i{transform:translateY(-3px);background:#fff;color:var(--accent)}}
+@media (max-width:760px){
+  .ft-bg line{display:none}
+  .ft-in{grid-template-columns:1fr;gap:36px;padding-bottom:120px}
+  .ft-cols{grid-template-columns:1fr 1fr;row-gap:28px}
+  .ft-cols>div:last-child{grid-column:1/-1}
+  footer.ft .ft-cols>div:last-child a{display:inline-block!important;margin-right:24px}
+  .ft-bot{flex-wrap:wrap;gap:12px 20px}
+  .ft-bot span{order:3;width:100%}
+  .ft-mark{font-size:19vw;bottom:104px}
+}

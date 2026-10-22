@@ -143,6 +143,7 @@
     ds.forEach(function(d){io.observe(d);});
   })();
   document.querySelectorAll('.btn,.works .work').forEach(function(el){el.insertAdjacentHTML('afterbegin','<span class="fx" aria-hidden="true"><b></b><b></b><b></b><b></b></span>');});
+  document.querySelectorAll('.ft-top').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});});});
   var btn=document.getElementById('menu-btn'),hd=document.querySelector('header');
   if(btn){btn.addEventListener('click',function(){var o=hd.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
     document.querySelectorAll('#gnav a').forEach(function(a){a.addEventListener('click',function(){hd.classList.remove('open');btn.setAttribute('aria-expanded','false');});});}
