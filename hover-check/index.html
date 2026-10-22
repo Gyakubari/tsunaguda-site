@@ -21,54 +21,79 @@ header p{color:#666;line-height:1.8;margin:8px 0 0}
 .card .k{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;color:#888}.card h3{margin:8px 0 6px;font-size:18px}.card p{margin:0;color:#666;font-size:14px;line-height:1.7}
 .card .ar{position:absolute;right:18px;top:18px;font-style:normal;font-size:18px;display:inline-block}
 .lab{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;color:#999;margin-bottom:-10px}
-/* A: lift */
-.A .btn,.A .card,.A .more i,.A .card .ar{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,background .3s,border-color .3s,color .3s}
-.A .btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px -10px rgba(36,56,157,.55);background:var(--accent)}
-.A .btn.ghost:hover{background:var(--fg);color:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.4)}
-.A .btn:hover i,.A .more:hover i{transform:translateX(5px)}
-.A .card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -22px rgba(36,56,157,.45);border-color:var(--accent)}
-.A .card:hover .ar{transform:translate(4px,-4px);color:var(--accent)}
-.A .more::after{transition:background .3s}.A .more:hover{color:var(--accent)}
-/* B: slanted fill */
-.B .btn::before,.B .card::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--accent);clip-path:polygon(0 0,0 0,-20% 100%,-20% 100%);transition:clip-path .55s cubic-bezier(.7,0,.2,1)}
-.B .btn:hover::before,.B .card:hover::before{clip-path:polygon(0 0,120% 0,100% 100%,-20% 100%)}
-.B .btn.ghost:hover{color:#fff;box-shadow:inset 0 0 0 1px var(--accent)}
-.B .card,.B .card *{transition:color .35s .1s,border-color .35s}
-.B .card:hover{border-color:var(--accent)}.B .card:hover,.B .card:hover .k,.B .card:hover p{color:#fff}
-.B .card:hover .k{color:var(--seam)}
-.B .more::after{transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}
-.B .more:hover::after{animation:redraw .7s cubic-bezier(.7,0,.2,1)}
+/* B1 original */
+.B1 .btn::before,.B1 .card::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--accent);clip-path:polygon(0 0,0 0,-20% 100%,-20% 100%);transition:clip-path .55s cubic-bezier(.7,0,.2,1)}
+.B1 .btn:hover::before,.B1 .card:hover::before{clip-path:polygon(0 0,120% 0,100% 100%,-20% 100%)}
+.B1 .btn.ghost:hover{color:#fff;box-shadow:inset 0 0 0 1px var(--accent)}
+.B1 .card,.B1 .card *{transition:color .35s .1s,border-color .35s}
+.B1 .card:hover{border-color:var(--accent)}.B1 .card:hover,.B1 .card:hover .k,.B1 .card:hover p{color:#fff}
+.B1 .card:hover .k{color:var(--seam)}
+.B1 .more::after{transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.B1 .more:hover::after{animation:redraw .7s cubic-bezier(.7,0,.2,1)}
 @keyframes redraw{0%{transform:scaleX(1);transform-origin:right}45%{transform:scaleX(0);transform-origin:right}46%{transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
-.B .btn i,.B .card .ar{transition:transform .4s}.B .btn:hover i{transform:translateX(4px)}.B .card:hover .ar{transform:rotate(45deg)}
-/* C: magnetic + text roll + spotlight */
-.C .btn{transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s}
-.C .btn:hover{background:var(--accent)}.C .btn.ghost:hover{background:var(--fg);color:#fff}
-.C .roll{display:inline-block;overflow:hidden;height:1.5em;line-height:1.5em;vertical-align:top}
-.C .roll span{display:block;transition:transform .45s cubic-bezier(.7,0,.2,1)}
-.C .btn:hover .roll span,.C .more:hover .roll span{transform:translateY(-100%)}
-.C .card{transition:transform .25s ease-out,border-color .3s;transform:perspective(700px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
-.C .card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(51,82,171,.16),transparent 70%)}
-.C .card:hover{border-color:rgba(51,82,171,.45)}.C .card:hover::before{opacity:1}
-.C .card:hover .ar{color:var(--accent)}
+.B1 .btn i,.B1 .card .ar{transition:transform .4s}.B1 .btn:hover i{transform:translateX(4px)}.B1 .card:hover .ar{transform:rotate(45deg)}
+
+/* shared for B2-B5 */
+.v .btn i,.v .card .ar{transition:transform .4s}.v .btn:hover i{transform:translateX(4px)}.v .card:hover .ar{transform:rotate(45deg)}
+.v .card,.v .card *{transition:color .35s .12s,border-color .35s}
+.v .card:hover{border-color:var(--accent)}.v .card:hover,.v .card:hover p{color:#fff}.v .card:hover .k{color:var(--seam)}
+.v .btn.ghost:hover{color:#fff;box-shadow:inset 0 0 0 1px var(--accent)}
+.v .more::after{transform-origin:left;transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.v .more:hover{color:var(--accent)}
+.fx{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.fx b{position:absolute;inset:0;display:block}
+/* B2: two layers (navy then blue) + cyan seam */
+.B2 .fx b:nth-child(1){background:var(--deep);clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%);transition:clip-path .5s cubic-bezier(.7,0,.2,1)}
+.B2 .fx b:nth-child(2){background:var(--accent);clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%);transition:clip-path .55s cubic-bezier(.7,0,.2,1) .09s;filter:drop-shadow(-2px 0 0 var(--seam))}
+.B2 :hover>.fx b{clip-path:polygon(0 0,125% 0,100% 100%,-25% 100%)}
+.B2 .more::after{background:linear-gradient(90deg,var(--deep) 0 50%,var(--accent) 50%)}
+.B2 .more:hover::after{animation:redraw .7s cubic-bezier(.7,0,.2,1)}
+/* B3: sweep through (enters left, leaves right) */
+.B3 .fx b{background:var(--accent);clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%)}
+.B3 .on>.fx b{clip-path:polygon(0 0,125% 0,100% 100%,-25% 100%);transition:clip-path .5s cubic-bezier(.7,0,.2,1)}
+.B3 .off>.fx b{clip-path:polygon(125% 0,125% 0,100% 100%,100% 100%);transition:clip-path .5s cubic-bezier(.7,0,.2,1)}
+.B3 .more::after{transform-origin:left}
+.B3 .more.on::after{animation:sweep .6s cubic-bezier(.7,0,.2,1)}
+@keyframes sweep{0%{transform:scaleX(1);transform-origin:right}49%{transform:scaleX(0);transform-origin:right}50%{transform:scaleX(0);transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
+/* B4: hairlines first, then fill */
+.B4 .fx b:nth-child(-n+3){width:2px;left:-10%;background:var(--accent);transform:skewX(-28deg);opacity:0}
+.B4 .fx b:nth-child(4){background:var(--accent);clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%);transition:clip-path .5s cubic-bezier(.7,0,.2,1) .18s}
+.B4 :hover>.fx b:nth-child(1){animation:hair .5s ease-in forwards}
+.B4 :hover>.fx b:nth-child(2){animation:hair .5s ease-in .05s forwards}
+.B4 :hover>.fx b:nth-child(3){animation:hair .5s ease-in .1s forwards}
+.B4 :hover>.fx b:nth-child(4){clip-path:polygon(0 0,125% 0,100% 100%,-25% 100%)}
+@keyframes hair{0%{left:-10%;opacity:1}100%{left:110%;opacity:1}}
+.B4 .more::after{transform:scaleX(1)}.B4 .more:hover::after{animation:redraw .7s cubic-bezier(.7,0,.2,1)}
+/* B5: fill follows mouse entry side */
+.B5 .fx b{background:var(--accent);clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%);transition:clip-path .5s cubic-bezier(.7,0,.2,1)}
+.B5 .fx.r b{clip-path:polygon(125% 0,125% 0,100% 100%,100% 100%)}
+.B5 :hover>.fx b{clip-path:polygon(0 0,125% 0,100% 100%,-25% 100%)}
+.B5 .more:hover::after{animation:redraw .7s cubic-bezier(.7,0,.2,1)}
+@keyframes redraw{0%{transform:scaleX(1);transform-origin:right}45%{transform:scaleX(0);transform-origin:right}46%{transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
 </style></head><body>
-<header><h1>Hover comparison</h1><p>ボタン・リンク・カードにマウスを乗せて比べてください。（スマホではタップしたときに少しだけ動きます）</p></header>
-<div class="grid">
-<section class="col A"><div class="tag">A<small>ふわっと浮く（王道・上品）</small></div>
+<header><h1>Hover comparison — B</h1><p>Bの「青が斜めに満ちる」をベースにした5パターンです。PCでマウスを乗せて比べてください。</p></header>
+<div class="grid"><section class="col B1"><div class="tag">B1<small>元のB（青が斜めに満ちる）</small></div>
 <div class="lab">BUTTON</div><div class="row"><a class="btn" href="#">無料で相談する <i>→</i></a><a class="btn ghost" href="#">実績を見る <i>→</i></a></div>
 <div class="lab">LINK</div><a class="more" href="#">サービス・料金プランを見る <i>→</i></a>
 <div class="lab">CARD</div><a class="card" href="#"><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
-<section class="col B"><div class="tag">B<small>青が斜めに満ちる（ブランドらしさ）</small></div>
-<div class="lab">BUTTON</div><div class="row"><a class="btn" href="#">無料で相談する <i>→</i></a><a class="btn ghost" href="#">実績を見る <i>→</i></a></div>
+<section class="col B2 v"><div class="tag">B2<small>紺→青の2段で満ちる＋水色の境目</small></div>
+<div class="lab">BUTTON</div><div class="row"><a class="btn" href="#"><span class="fx"><b></b><b></b></span>無料で相談する <i>→</i></a><a class="btn ghost" href="#"><span class="fx"><b></b><b></b></span>実績を見る <i>→</i></a></div>
 <div class="lab">LINK</div><a class="more" href="#">サービス・料金プランを見る <i>→</i></a>
-<div class="lab">CARD</div><a class="card" href="#"><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
-<section class="col C"><div class="tag">C<small>吸い付く・文字が回る・光が追う（遊び心）</small></div>
-<div class="lab">BUTTON</div><div class="row"><a class="btn mag" href="#"><span class="roll"><span>無料で相談する →</span><span>無料で相談する →</span></span></a><a class="btn ghost mag" href="#"><span class="roll"><span>実績を見る →</span><span>実績を見る →</span></span></a></div>
-<div class="lab">LINK</div><a class="more" href="#"><span class="roll"><span>サービス・料金プランを見る →</span><span>サービス・料金プランを見る →</span></span></a>
-<div class="lab">CARD</div><a class="card tilt" href="#"><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
-</div>
-<script>
+<div class="lab">CARD</div><a class="card" href="#"><span class="fx"><b></b><b></b></span><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
+<section class="col B3 v"><div class="tag">B3<small>左から入って右へ抜ける</small></div>
+<div class="lab">BUTTON</div><div class="row"><a class="btn" href="#"><span class="fx"><b></b></span>無料で相談する <i>→</i></a><a class="btn ghost" href="#"><span class="fx"><b></b></span>実績を見る <i>→</i></a></div>
+<div class="lab">LINK</div><a class="more" href="#">サービス・料金プランを見る <i>→</i></a>
+<div class="lab">CARD</div><a class="card" href="#"><span class="fx"><b></b></span><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
+<section class="col B4 v"><div class="tag">B4<small>細い線が先に走ってから満ちる</small></div>
+<div class="lab">BUTTON</div><div class="row"><a class="btn" href="#"><span class="fx"><b></b><b></b><b></b><b></b></span>無料で相談する <i>→</i></a><a class="btn ghost" href="#"><span class="fx"><b></b><b></b><b></b><b></b></span>実績を見る <i>→</i></a></div>
+<div class="lab">LINK</div><a class="more" href="#">サービス・料金プランを見る <i>→</i></a>
+<div class="lab">CARD</div><a class="card" href="#"><span class="fx"><b></b><b></b><b></b><b></b></span><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
+<section class="col B5 v"><div class="tag">B5<small>マウスが入ってきた側から満ちる</small></div>
+<div class="lab">BUTTON</div><div class="row"><a class="btn" href="#"><span class="fx"><b></b></span>無料で相談する <i>→</i></a><a class="btn ghost" href="#"><span class="fx"><b></b></span>実績を見る <i>→</i></a></div>
+<div class="lab">LINK</div><a class="more" href="#">サービス・料金プランを見る <i>→</i></a>
+<div class="lab">CARD</div><a class="card" href="#"><span class="fx"><b></b></span><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
+</div><script>
 document.querySelectorAll('a[href="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
-if(matchMedia('(pointer:fine)').matches){
-document.querySelectorAll('.mag').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';});b.addEventListener('mouseleave',function(){b.style.transform='';});});
-document.querySelectorAll('.tilt').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.style.setProperty('--ry',(x-.5)*8+'deg');c.style.setProperty('--rx',(.5-y)*8+'deg');});c.addEventListener('mouseleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');});});}
+document.querySelectorAll('.B3 .btn,.B3 .card,.B3 .more').forEach(function(el){el.addEventListener('mouseenter',function(){el.classList.remove('off');el.classList.add('on');});el.addEventListener('mouseleave',function(){el.classList.remove('on');el.classList.add('off');});});
+document.querySelectorAll('.B5 .btn,.B5 .card').forEach(function(el){var fx=el.querySelector('.fx');el.addEventListener('mouseenter',function(e){var r=el.getBoundingClientRect();fx.classList.add('nt');fx.classList.toggle('r',e.clientX>r.left+r.width/2);});el.addEventListener('mouseleave',function(e){var r=el.getBoundingClientRect();fx.classList.toggle('r',e.clientX>r.left+r.width/2);});});
 </script></body></html>
