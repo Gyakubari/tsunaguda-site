@@ -142,6 +142,7 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.25});
     ds.forEach(function(d){io.observe(d);});
   })();
+  document.querySelectorAll('.btn,.works .work').forEach(function(el){el.insertAdjacentHTML('afterbegin','<span class="fx" aria-hidden="true"><b></b><b></b><b></b><b></b></span>');});
   var btn=document.getElementById('menu-btn'),hd=document.querySelector('header');
   if(btn){btn.addEventListener('click',function(){var o=hd.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
     document.querySelectorAll('#gnav a').forEach(function(a){a.addEventListener('click',function(){hd.classList.remove('open');btn.setAttribute('aria-expanded','false');});});}
