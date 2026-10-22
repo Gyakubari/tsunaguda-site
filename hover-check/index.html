@@ -1,0 +1,74 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>ホバー比較｜つなぐだ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;800&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--fg:#111214;--bg:#fafaf8;--accent:#3352ab;--deep:#24389d;--line:#e3e3df;--seam:#7fd0f5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'Noto Sans JP',sans-serif}
+header{padding:40px max(16px,4vw) 10px}h1{font-family:'Inter Tight';font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin:0}
+header p{color:#666;line-height:1.8;margin:8px 0 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:24px max(16px,4vw) 80px}
+@media(max-width:1000px){.grid{grid-template-columns:1fr}}
+.col{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff;display:grid;gap:22px;align-content:start}
+.tag{font-family:'Inter Tight';font-weight:800;font-size:40px;line-height:1}.tag small{display:block;font-family:'Noto Sans JP';font-size:14px;color:#666;font-weight:500;margin-top:6px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:.8em 1.4em;border-radius:999px;background:var(--fg);color:#fff;text-decoration:none;font-weight:500;font-size:15px;overflow:hidden;isolation:isolate}
+.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg)}
+.btn i{font-style:normal;display:inline-block}
+.more{display:inline-flex;gap:10px;align-items:center;font-weight:700;color:var(--fg);text-decoration:none;padding-bottom:6px;position:relative;width:max-content}
+.more::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:currentColor}
+.more i{font-style:normal;display:inline-block}
+.card{position:relative;display:block;border:1px solid var(--line);border-radius:14px;padding:22px;text-decoration:none;color:var(--fg);overflow:hidden;isolation:isolate;background:#fff}
+.card .k{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;color:#888}.card h3{margin:8px 0 6px;font-size:18px}.card p{margin:0;color:#666;font-size:14px;line-height:1.7}
+.card .ar{position:absolute;right:18px;top:18px;font-style:normal;font-size:18px;display:inline-block}
+.lab{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;color:#999;margin-bottom:-10px}
+/* A: lift */
+.A .btn,.A .card,.A .more i,.A .card .ar{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,background .3s,border-color .3s,color .3s}
+.A .btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px -10px rgba(36,56,157,.55);background:var(--accent)}
+.A .btn.ghost:hover{background:var(--fg);color:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.4)}
+.A .btn:hover i,.A .more:hover i{transform:translateX(5px)}
+.A .card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -22px rgba(36,56,157,.45);border-color:var(--accent)}
+.A .card:hover .ar{transform:translate(4px,-4px);color:var(--accent)}
+.A .more::after{transition:background .3s}.A .more:hover{color:var(--accent)}
+/* B: slanted fill */
+.B .btn::before,.B .card::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--accent);clip-path:polygon(0 0,0 0,-20% 100%,-20% 100%);transition:clip-path .55s cubic-bezier(.7,0,.2,1)}
+.B .btn:hover::before,.B .card:hover::before{clip-path:polygon(0 0,120% 0,100% 100%,-20% 100%)}
+.B .btn.ghost:hover{color:#fff;box-shadow:inset 0 0 0 1px var(--accent)}
+.B .card,.B .card *{transition:color .35s .1s,border-color .35s}
+.B .card:hover{border-color:var(--accent)}.B .card:hover,.B .card:hover .k,.B .card:hover p{color:#fff}
+.B .card:hover .k{color:var(--seam)}
+.B .more::after{transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.B .more:hover::after{animation:redraw .7s cubic-bezier(.7,0,.2,1)}
+@keyframes redraw{0%{transform:scaleX(1);transform-origin:right}45%{transform:scaleX(0);transform-origin:right}46%{transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
+.B .btn i,.B .card .ar{transition:transform .4s}.B .btn:hover i{transform:translateX(4px)}.B .card:hover .ar{transform:rotate(45deg)}
+/* C: magnetic + text roll + spotlight */
+.C .btn{transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s}
+.C .btn:hover{background:var(--accent)}.C .btn.ghost:hover{background:var(--fg);color:#fff}
+.C .roll{display:inline-block;overflow:hidden;height:1.5em;line-height:1.5em;vertical-align:top}
+.C .roll span{display:block;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.C .btn:hover .roll span,.C .more:hover .roll span{transform:translateY(-100%)}
+.C .card{transition:transform .25s ease-out,border-color .3s;transform:perspective(700px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
+.C .card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(51,82,171,.16),transparent 70%)}
+.C .card:hover{border-color:rgba(51,82,171,.45)}.C .card:hover::before{opacity:1}
+.C .card:hover .ar{color:var(--accent)}
+</style></head><body>
+<header><h1>Hover comparison</h1><p>ボタン・リンク・カードにマウスを乗せて比べてください。（スマホではタップしたときに少しだけ動きます）</p></header>
+<div class="grid">
+<section class="col A"><div class="tag">A<small>ふわっと浮く（王道・上品）</small></div>
+<div class="lab">BUTTON</div><div class="row"><a class="btn" href="#">無料で相談する <i>→</i></a><a class="btn ghost" href="#">実績を見る <i>→</i></a></div>
+<div class="lab">LINK</div><a class="more" href="#">サービス・料金プランを見る <i>→</i></a>
+<div class="lab">CARD</div><a class="card" href="#"><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
+<section class="col B"><div class="tag">B<small>青が斜めに満ちる（ブランドらしさ）</small></div>
+<div class="lab">BUTTON</div><div class="row"><a class="btn" href="#">無料で相談する <i>→</i></a><a class="btn ghost" href="#">実績を見る <i>→</i></a></div>
+<div class="lab">LINK</div><a class="more" href="#">サービス・料金プランを見る <i>→</i></a>
+<div class="lab">CARD</div><a class="card" href="#"><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
+<section class="col C"><div class="tag">C<small>吸い付く・文字が回る・光が追う（遊び心）</small></div>
+<div class="lab">BUTTON</div><div class="row"><a class="btn mag" href="#"><span class="roll"><span>無料で相談する →</span><span>無料で相談する →</span></span></a><a class="btn ghost mag" href="#"><span class="roll"><span>実績を見る →</span><span>実績を見る →</span></span></a></div>
+<div class="lab">LINK</div><a class="more" href="#"><span class="roll"><span>サービス・料金プランを見る →</span><span>サービス・料金プランを見る →</span></span></a>
+<div class="lab">CARD</div><a class="card tilt" href="#"><i class="ar">↗</i><div class="k">WORKS</div><h3>激動チャンネル</h3><p>企画・撮影・編集を一括でサポート</p></a></section>
+</div>
+<script>
+document.querySelectorAll('a[href="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
+if(matchMedia('(pointer:fine)').matches){
+document.querySelectorAll('.mag').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';});b.addEventListener('mouseleave',function(){b.style.transform='';});});
+document.querySelectorAll('.tilt').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.style.setProperty('--ry',(x-.5)*8+'deg');c.style.setProperty('--rx',(.5-y)*8+'deg');});c.addEventListener('mouseleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');});});}
+</script></body></html>
