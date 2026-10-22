@@ -512,3 +512,14 @@ footer.ft .ft-cols a::after{content:"";position:absolute;left:0;right:0;bottom:3
   .ft-bot span{order:3;width:100%}
   .ft-mark{font-size:19vw;bottom:104px}
 }
+
+/* footer CTA row (replaces the Let's talk band) */
+.ft-cta{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:clamp(28px,4vw,52px) max(20px,4vw) clamp(28px,3.4vw,44px);display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;border-bottom:1px solid var(--fl)}
+.ft-cta-t{margin:0;color:#fff;font-weight:700;font-size:clamp(16px,1.6vw,21px);line-height:1.8;letter-spacing:.04em}
+.ft-h2{display:block;font-family:var(--font-mono);font-weight:400;font-size:12px;letter-spacing:.22em;color:var(--seam);margin-bottom:8px}
+footer.ft .ft-btn{background:#fff;color:var(--brand-ink);font-size:clamp(15px,1.3vw,17px);padding:1em 1.8em;font-weight:700}
+footer.ft .ft-btn .fx b{background:var(--brand-ink)}
+@media (hover:hover){footer.ft .ft-btn:hover{background:#fff;color:#fff}}
+.ft-in{padding-top:clamp(36px,4vw,56px)}
+@media (max-width:760px){.ft-cta{flex-direction:column;align-items:flex-start}.ft-cta-t br{display:none}footer.ft .ft-btn{width:100%;justify-content:center}}
+.ft-bg line{display:none}
