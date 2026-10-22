@@ -523,3 +523,8 @@ footer.ft .ft-btn .fx b{background:var(--brand-ink)}
 .ft-in{padding-top:clamp(36px,4vw,56px)}
 @media (max-width:760px){.ft-cta{flex-direction:column;align-items:flex-start}.ft-cta-t br{display:none}footer.ft .ft-btn{width:100%;justify-content:center}}
 .ft-bg line{display:none}
+.hero-shapes .sh.off{display:none!important}
+/* Japanese phrase-aware line breaks (BudouX <wbr> in markup) */
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+p,li,dd,dt,blockquote,figcaption,summary{text-wrap:pretty}
+.jph{white-space:nowrap}

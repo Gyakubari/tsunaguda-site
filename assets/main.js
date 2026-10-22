@@ -32,9 +32,10 @@
       el.classList.add('r-lines');targets.push(el);});
     all('.lead,.mission,.value h3,.brand-band .kicker').forEach(function(el){
       var n=0;(function walk(node){Array.prototype.slice.call(node.childNodes).forEach(function(c){
-        if(c.nodeType===3){var f=document.createDocumentFragment();Array.from(c.textContent).forEach(function(ch){
-          if(/\s/.test(ch)){f.appendChild(document.createTextNode(ch));return;}
-          var s=document.createElement('span');s.className='rc';s.style.setProperty('--i',n++);s.textContent=ch;f.appendChild(s);});
+        if(c.nodeType===3){var f=document.createDocumentFragment(),ph=null;Array.from(c.textContent).forEach(function(ch){
+          if(/\s/.test(ch)){ph=null;f.appendChild(document.createTextNode(ch));return;}
+          if(!ph){ph=document.createElement('span');ph.className='jph';f.appendChild(ph);}
+          var s=document.createElement('span');s.className='rc';s.style.setProperty('--i',n++);s.textContent=ch;ph.appendChild(s);});
           c.parentNode.replaceChild(f,c);}
         else if(c.nodeType===1&&c.tagName!=='BR')walk(c);});})(el);
       el.classList.add('r-chars');targets.push(el);});
@@ -80,6 +81,18 @@
     function aim(){var w=hero.clientWidth,h=hero.clientHeight;els.forEach(function(el,i){var d=S[i];
       el.style.setProperty('--dx',((50-d[1])/100*w)+'px');el.style.setProperty('--dy',((50-d[2])/100*h)+'px');});}
     aim();
+    function clear(){var hr=hero.getBoundingClientRect(),w=hero.clientWidth,h=hero.clientHeight,P=w<700?10:22,ob=[];
+      function add(l,t,r,b){ob.push([l-hr.left-P,t-hr.top-P,r-hr.left+P,b-hr.top+P]);}
+      hero.querySelectorAll('.display .ln').forEach(function(ln){var r=ln.getBoundingClientRect(),sp=ln.firstChild;add(r.left,r.top,r.left+(sp?sp.offsetWidth:r.width),r.bottom);});
+      hero.querySelectorAll('.hero-meta>*,.hero-copy strong,.hero-copy p,.hero-cta .btn,.scroll').forEach(function(e){var r=e.getBoundingClientRect();if(r.width)add(r.left,r.top,r.right,r.bottom);});
+      function hits(x,y,sw,sh){var cx=x/100*w,cy=y/100*h,a=[cx-sw/2,cy-sh/2,cx+sw/2,cy+sh/2];
+        return ob.some(function(o){return a[0]<o[2]&&a[2]>o[0]&&a[1]<o[3]&&a[3]>o[1];});}
+      // keep each shape clear of the copy: try its own spot, then slide it to the nearer side edge, else hide it
+      els.forEach(function(el,i){var d=S[i];el.classList.remove('off');el.style.setProperty('--x',d[1]+'%');var sw=el.offsetWidth,sh=el.offsetHeight;if(!sw)return;
+        if(!hits(d[1],d[2],sw,sh))return;var ex=d[1]<50?2:98;
+        if(!hits(ex,d[2],sw,sh)){el.style.setProperty('--x',ex+'%');el.style.setProperty('--dx',((50-ex)/100*w)+'px');return;}
+        el.classList.add('off');});}
+    clear();window.addEventListener('resize',function(){aim();clear();});if(document.fonts)document.fonts.ready.then(clear);
     var wait=root.classList.contains('seen')?120:1850;
     setTimeout(function(){box.offsetWidth;box.classList.add('go');},wait);
     if(rm||!window.matchMedia('(pointer:fine)').matches)return;
