@@ -136,6 +136,12 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){draw();band.classList.add('e5-on');io.disconnect();}});},{threshold:.35});
     io.observe(band);
   })();
+  (function(){
+    var ds=document.querySelectorAll('.divider');if(!ds.length)return;
+    if(!('IntersectionObserver' in window)){ds.forEach(function(d){d.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.25});
+    ds.forEach(function(d){io.observe(d);});
+  })();
   var btn=document.getElementById('menu-btn'),hd=document.querySelector('header');
   if(btn){btn.addEventListener('click',function(){var o=hd.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
     document.querySelectorAll('#gnav a').forEach(function(a){a.addEventListener('click',function(){hd.classList.remove('open');btn.setAttribute('aria-expanded','false');});});}
